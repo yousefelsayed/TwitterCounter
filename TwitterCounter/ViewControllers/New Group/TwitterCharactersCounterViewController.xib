@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TwitterCharactersCounterViewController" customModule="TwitterCounter" customModuleProvider="target">
+            <connections>
+                <outlet property="remainingCharactersLabel" destination="eUp-vp-xpy" id="561-r0-f7Z"/>
+                <outlet property="twTextView" destination="1PW-Md-AOf" id="RxI-45-Uku"/>
+                <outlet property="typedCharactersLabel" destination="4io-Rn-dPH" id="y0O-8h-S95"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="eb4-FD-k1h">
+                    <rect key="frame" x="16" y="48" width="382" height="814"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Qc-Io-e4Z">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="1"/>
+                            <color key="backgroundColor" name="lineGray"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="mRl-rS-uwG"/>
+                            </constraints>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitterlogo" translatesAutoresizingMaskIntoConstraints="NO" id="8Vf-qJ-4L2">
+                            <rect key="frame" x="0.0" y="25" width="382" height="60"/>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ogf-ha-ZCB">
+                            <rect key="frame" x="0.0" y="109" width="382" height="108"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aus-oh-n3Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="181" height="108"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jIh-6f-x3R">
+                                            <rect key="frame" x="0.0" y="0.0" width="181" height="108"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2Y-hh-8dA" customClass="UpperCornersView" customModule="TWTextEditorSDK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="181" height="35"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters Typed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYN-pk-8KR" customClass="TitleLabelWithTithSize14" customModule="TWTextEditorSDK">
+                                                            <rect key="frame" x="23" y="7.5" width="135.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="upperCardColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="DLI-k5-rc5"/>
+                                                        <constraint firstItem="OYN-pk-8KR" firstAttribute="centerY" secondItem="C2Y-hh-8dA" secondAttribute="centerY" id="Kni-sQ-zS6"/>
+                                                        <constraint firstItem="OYN-pk-8KR" firstAttribute="centerX" secondItem="C2Y-hh-8dA" secondAttribute="centerX" id="rtz-KW-ibd"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/280" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4io-Rn-dPH" customClass="CounterLabel" customModule="TWTextEditorSDK">
+                                                    <rect key="frame" x="0.0" y="35" width="181" height="73"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="jIh-6f-x3R" secondAttribute="bottom" id="DuD-Iq-GqR"/>
+                                        <constraint firstItem="jIh-6f-x3R" firstAttribute="leading" secondItem="aus-oh-n3Y" secondAttribute="leading" id="p9g-20-ge3"/>
+                                        <constraint firstItem="jIh-6f-x3R" firstAttribute="top" secondItem="aus-oh-n3Y" secondAttribute="top" id="sjB-IN-k1s"/>
+                                        <constraint firstAttribute="trailing" secondItem="jIh-6f-x3R" secondAttribute="trailing" id="v0Z-RE-3ut"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="12"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" name="upperCardColor"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bx6-Pq-hse">
+                                    <rect key="frame" x="201" y="0.0" width="181" height="108"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Rl-g0-DcA">
+                                            <rect key="frame" x="0.0" y="0.0" width="181" height="108"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JvS-q1-ZT5" customClass="UpperCornersView" customModule="TWTextEditorSDK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="181" height="35"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters Remaining" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNr-BO-WqE" customClass="TitleLabelWithTithSize14" customModule="TWTextEditorSDK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="181" height="35"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="upperCardColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="dNr-BO-WqE" secondAttribute="trailing" id="8cy-lY-ztv"/>
+                                                        <constraint firstAttribute="height" constant="35" id="ELl-Ox-7i7"/>
+                                                        <constraint firstItem="dNr-BO-WqE" firstAttribute="top" secondItem="JvS-q1-ZT5" secondAttribute="top" id="Tn2-yp-gD1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="dNr-BO-WqE" secondAttribute="bottom" id="c2v-ag-P9H"/>
+                                                        <constraint firstItem="dNr-BO-WqE" firstAttribute="leading" secondItem="JvS-q1-ZT5" secondAttribute="leading" id="t4B-XQ-qqA"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="280" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-vp-xpy" customClass="CounterLabel" customModule="TWTextEditorSDK">
+                                                    <rect key="frame" x="0.0" y="35" width="181" height="73"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="5Rl-g0-DcA" secondAttribute="trailing" id="1dx-jp-QEu"/>
+                                        <constraint firstItem="5Rl-g0-DcA" firstAttribute="leading" secondItem="Bx6-Pq-hse" secondAttribute="leading" id="Loc-2O-npF"/>
+                                        <constraint firstAttribute="bottom" secondItem="5Rl-g0-DcA" secondAttribute="bottom" id="YXW-rJ-SOd"/>
+                                        <constraint firstItem="5Rl-g0-DcA" firstAttribute="top" secondItem="Bx6-Pq-hse" secondAttribute="top" id="yY3-jZ-DQB"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="12"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" name="upperCardColor"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="108" id="1H4-N9-4G9"/>
+                            </constraints>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1PW-Md-AOf" customClass="TWTextEditorView" customModule="TWTextEditorSDK">
+                            <rect key="frame" x="0.0" y="241" width="382" height="242"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ga-p1-SjB">
+                            <rect key="frame" x="0.0" y="507" width="382" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgJ-yR-0GB" customClass="TWPrimaryButton" customModule="TWTextEditorSDK">
+                                    <rect key="frame" x="0.0" y="0.0" width="93" height="40"/>
+                                    <color key="backgroundColor" name="copyTextColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="93" id="uug-ND-uHi"/>
+                                        <constraint firstAttribute="height" constant="40" id="woa-Jp-OdI"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Copy Text"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="copyTextButtonAction:" destination="-1" eventType="touchUpInside" id="SIB-fg-WER"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVz-je-Ffm">
+                                    <rect key="frame" x="93" y="0.0" width="196" height="40"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4K-oj-YdC" customClass="TWPrimaryButton" customModule="TWTextEditorSDK">
+                                    <rect key="frame" x="289" y="0.0" width="93" height="40"/>
+                                    <color key="backgroundColor" name="clearTextColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Mid-Rv-iXe"/>
+                                    </constraints>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Clear Text"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="clearTextButtonAction:" destination="-1" eventType="touchUpInside" id="8Y8-gp-4zQ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="G4K-oj-YdC" firstAttribute="width" secondItem="BgJ-yR-0GB" secondAttribute="width" id="ImY-Pr-QEE"/>
+                            </constraints>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ws5-jg-cFq" customClass="TWPrimaryButton" customModule="TWTextEditorSDK">
+                            <rect key="frame" x="0.0" y="571" width="382" height="56"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="6Zb-Ai-zl2"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Post tweet"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="16"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgU-zC-fbx">
+                            <rect key="frame" x="0.0" y="651" width="382" height="163"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eb4-FD-k1h" secondAttribute="trailing" constant="16" id="9hW-oL-Bhq"/>
+                <constraint firstItem="eb4-FD-k1h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="WO7-HR-isd"/>
+                <constraint firstItem="1PW-Md-AOf" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.27" id="dwt-gK-WWZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eb4-FD-k1h" secondAttribute="bottom" id="nYT-Kd-MJr"/>
+                <constraint firstItem="eb4-FD-k1h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vkD-Yf-OJp"/>
+            </constraints>
+            <point key="canvasLocation" x="114" y="0.0"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Twitterlogo" width="60" height="60"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="clearTextColor">
+            <color red="0.86299997568130493" green="0.0040000001899898052" blue="0.14499999582767487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="copyTextColor">
+            <color red="0.0" green="0.66299998760223389" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lineGray">
+            <color red="0.95999997854232788" green="0.95999997854232788" blue="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="upperCardColor">
+            <color red="0.90200001001358032" green="0.9649999737739563" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
