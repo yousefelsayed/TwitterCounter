@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "24483ADC-DEDF-49DF-B869-33D83644D98E"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "29030185-C6E2-429A-B083-685A07852CC0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Downloads/TWTextEditorSDK/Tests/TWTextEditorSDKTests/TWTextEditorSDKTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "testLengthOfTweetWithMultipleWhitespaces_ShouldReturnCorrectLength()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8CE4BD82-5181-479A-BCBC-38166A781B32"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Downloads/TWTextEditorSDK/Tests/TWTextEditorSDKTests/TWTextEditorSDKTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "testGivenTweetWithDifferentTypeOfInput_ShouldReturnTrue()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81C0E450-7A2A-44BE-A1C8-67788E2AD8C2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Downloads/TWTextEditorSDK/Sources/TWTextEditorSDK/TWTextEditor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "countTwitterCharacters(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B20BC8CE-27F3-4C0E-A1B1-AC7C5139E8FD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Downloads/TWTextEditorSDK/Sources/TWTextEditorSDK/TWTextEditor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "countTwitterCharacters(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B20BC8CE-27F3-4C0E-A1B1-AC7C5139E8FD - 65cf00f4fc4e24c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TWTextEditorSDK.TWTextEditor.countTwitterCharacters(Swift.String) -&gt; Swift.Int"
+                  moduleName = "TWTextEditorSDKTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yousefelsayed/Downloads/TWTextEditorSDK/Sources/TWTextEditorSDK/TWTextEditor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "332">
+               </Location>
+               <Location
+                  uuid = "B20BC8CE-27F3-4C0E-A1B1-AC7C5139E8FD - 65cf00f4fc4e24ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TWTextEditorSDK.TWTextEditor.countTwitterCharacters(Swift.String) -&gt; Swift.Int"
+                  moduleName = "TWTextEditorSDKTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yousefelsayed/Downloads/TWTextEditorSDK/Sources/TWTextEditorSDK/TWTextEditor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "B20BC8CE-27F3-4C0E-A1B1-AC7C5139E8FD - 6f4eed0299c5a946"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int, Swift.Unicode.Scalar) -&gt; Swift.Int in TWTextEditorSDK.TWTextEditor.countTwitterCharacters(Swift.String) -&gt; Swift.Int"
+                  moduleName = "TWTextEditorSDKTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yousefelsayed/Downloads/TWTextEditorSDK/Sources/TWTextEditorSDK/TWTextEditor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "192">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

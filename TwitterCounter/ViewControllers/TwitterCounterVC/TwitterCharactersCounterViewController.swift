@@ -11,104 +11,125 @@ import OAuthSwift
 
 class TwitterCharactersCounterViewController: UIViewController {
     
+    // Outlets for the text editor and character count labels
     @IBOutlet weak var twTextView: TWTextEditorView!
     @IBOutlet weak var typedCharactersLabel: CounterLabel!
     @IBOutlet weak var remainingCharactersLabel: CounterLabel!
     
-    
+    // Network service for making HTTP requests
     private var networkService: NetworkService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up the navigation bar
         setUpNavBar()
+        
+        // Assign delegate for text view events
         twTextView.viewDelegate = self
+        
+        // Enable tap-to-hide keyboard behavior
         hideKeyboardWhenTappedAround()
-        self.networkService = URLSessionNetworkService()
+        
+        // Initialize the network service
+        networkService = URLSessionNetworkService()
     }
     
-    
-    func setUpNavBar(){
-        //For title in navigation bar
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backBarButtonItem
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.11, green: 0.129, blue: 0.122, alpha: 1)
-        self.navigationItem.title = "Twitter character count"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 0.11, green: 0.129, blue: 0.122, alpha: 1),
-                                                                        NSAttributedString.Key.font: UIFont.twFontMediumWithSize(size: 18)]
+    // Set up the navigation bar with custom title and back button
+    private func setUpNavBar() {
+        // Set a blank back button title to maintain default back functionality
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        // Customize navigation bar appearance
+        let tintColor = UIColor(red: 0.11, green: 0.129, blue: 0.122, alpha: 1)
+        navigationController?.navigationBar.tintColor = tintColor
+        
+        // Set navigation bar title and its attributes
+        navigationItem.title = "Twitter Character Count"
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: tintColor,
+            .font: UIFont.twFontMediumWithSize(size: 18)
+        ]
+        navigationController?.navigationBar.titleTextAttributes = titleAttributes
     }
     
+    // Action to copy the current text to the clipboard
     @IBAction func copyTextButtonAction(_ sender: Any) {
-        self.twTextView.copyCurrentText()
+        twTextView.copyCurrentText()
     }
     
+    // Action to clear the text in the editor
     @IBAction func clearTextButtonAction(_ sender: Any) {
-        self.twTextView.clearText()
+        twTextView.clearText()
     }
     
-    
+    // Action to post a tweet, with authorization
     @IBAction func postTweetAction(_ sender: Any) {
         Task {
-            await self.authorizeAndGetToken()
+            await authorizeAndGetToken()
         }
     }
     
+    // Asynchronously authorize and obtain a token to post tweets
     private func authorizeAndGetToken() async {
-        let bundelId = Bundle.main.bundleIdentifier!
+        let bundleId = Bundle.main.bundleIdentifier ?? ""
         let authDomain = "api.twitter.com"
         let authorizationUrl = "https://\(authDomain)/oauth/authorize"
-        let tokenURL = "https://\(authDomain)/oauth/token"
-        let consumerKey =    "b8ja6swBKS7zxeZAgch5uJLJh"
-        let redirectURL = "\(bundelId)://\(authDomain)/ios/\(bundelId)/callback"
+        let tokenUrl = "https://\(authDomain)/oauth/token"
+        
+        let consumerKey = "b8ja6swBKS7zxeZAgch5uJLJh"
         let consumerSecret = "6DbkZ0dYXVpHJU5nCSN0zCZXwGeUgYhuwjzaNa1paqlGKoAIDw"
+        let redirectUrl = "\(bundleId)://\(authDomain)/ios/\(bundleId)/callback"
         let scope = "tweet.read tweet.write"
         let state = generateRandomString(length: 30)
-        let clientId = "OXAzUThlVUpZRlE5UGp3T0dGSWg6MTpjaQ"
-
         
-        // Initialize OAuth2Swift with your Twitter app credentials
+        // Initialize OAuth2Swift with Twitter app credentials
         let oauthswift = OAuth2Swift(
-            consumerKey:    consumerKey,
+            consumerKey: consumerKey,
             consumerSecret: consumerSecret,
-            authorizeUrl:   authorizationUrl,
-            accessTokenUrl: tokenURL,
-            responseType:   "code"
+            authorizeUrl: authorizationUrl,
+            accessTokenUrl: tokenUrl,
+            responseType: "code"
         )
         
+        guard let codeVerifier = generateCodeVerifier() else { return }
+        guard let codeChallenge = generateCodeChallenge(codeVerifier: codeVerifier) else { return }
         
-        guard let codeVerifier = generateCodeVerifier() else {return}
-        guard let codeChallenge = generateCodeChallenge(codeVerifier: codeVerifier) else {return}
-        
-         oauthswift.authorize(
-            withCallbackURL: redirectURL,
+        // Authorize with OAuth and obtain the token
+        oauthswift.authorize(
+            withCallbackURL: redirectUrl,
             scope: scope,
-            state:state,
+            state: state,
             codeChallenge: codeChallenge,
             codeChallengeMethod: "S256",
-            codeVerifier: codeVerifier) { result in
-                switch result {
-                case .success(let (credential, _, _)):
-                    // Store the OAuth token
-                    let oauthToken = credential.oauthToken
-                    Task {
-                        await self.postTweet(authToken: oauthToken)
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
+            codeVerifier: codeVerifier
+        ) { result in
+            switch result {
+            case .success(let (credential, _, _)):
+                // Successful authorization, post the tweet
+                Task {
+                    await self.postTweet(authToken: credential.oauthToken)
                 }
+            case .failure(let error):
+                print("Authorization failed:", error.localizedDescription)
             }
-        
+        }
     }
     
-    
+    // Asynchronously post a tweet with the given authorization token
     private func postTweet(authToken: String) async {
         let postTweetPath = "2/tweets"
         let headers = ["Authorization": "Bearer \(authToken)"]
         
         Task {
             do {
-                let result: Result<TweetResponse, NetworkError>  = try await networkService.performRequest(endPoint:postTweetPath,
-                                                                                                           method: .post,
-                                                                                                           header: headers)
+                // Perform the network request to post the tweet
+                let result: Result<TweetResponse, NetworkError> = try await networkService.performRequest(
+                    endPoint: postTweetPath,
+                    method: .post,
+                    header: headers
+                )
+                
                 switch result {
                 case .success(let tweet):
                     print("Tweet posted:", tweet.data.text)
@@ -119,23 +140,22 @@ class TwitterCharactersCounterViewController: UIViewController {
             } catch {
                 print("Error during network call:", error.localizedDescription)
             }
-            
         }
     }
     
+    // Generate a random string of the specified length
     private func generateRandomString(length: Int) -> String {
-         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-         return String((0..<length).map{ _ in letters.randomElement()! })
-     }
-}
-
-extension TwitterCharactersCounterViewController: TWTextEditorViewDelegate {
-  
-    func textDidChange(_ textView: UITextView) {
-        
-        self.typedCharactersLabel.text = "\(self.twTextView.typedCharactersCount )/\(self.twTextView.maxCountOfCharacters)"
-        self.remainingCharactersLabel.text = "\(self.twTextView.remainingCharactersCount)"
-        
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map { _ in letters.randomElement()! })
     }
 }
 
+// Extension for handling text changes in the text editor
+extension TwitterCharactersCounterViewController: TWTextEditorViewDelegate {
+    
+    func textDidChange(_ textView: UITextView) {
+        // Update character count and remaining characters labels
+        typedCharactersLabel.text = "\(twTextView.typedCharactersCount)/\(twTextView.maxCountOfCharacters)"
+        remainingCharactersLabel.text = "\(twTextView.remainingCharactersCount)"
+    }
+}

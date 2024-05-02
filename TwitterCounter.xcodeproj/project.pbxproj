@@ -63,8 +63,8 @@
 		D30E0E3D2BE1591A00877A41 /* CustomSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplashViewController.swift; sourceTree = "<group>"; };
 		D30E0E3E2BE1591A00877A41 /* CustomSplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSplashViewController.xib; sourceTree = "<group>"; };
 		D30E0E482BE15AD800877A41 /* TwitterCharactersCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterCharactersCounterViewController.swift; sourceTree = "<group>"; };
-		D30E0E4C2BE15B4A00877A41 /* TWTextEditorSDK */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TWTextEditorSDK; path = ../TWTextEditorSDK; sourceTree = "<group>"; };
 		D30E0E4D2BE15C3100877A41 /* TwitterCharactersCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterCharactersCounterViewController.xib; sourceTree = "<group>"; };
+		D33864E02BE3AD3600E51403 /* TWTextEditorSDK */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TWTextEditorSDK; path = ../TWTextEditorSDK; sourceTree = "<group>"; };
 		D3CD1A8D2BE3023C007D9261 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		D3CD1A8E2BE3023C007D9261 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D3CD1A8F2BE3023C007D9261 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		D30E0E002BE1585300877A41 = {
 			isa = PBXGroup;
 			children = (
-				D30E0E4C2BE15B4A00877A41 /* TWTextEditorSDK */,
+				D33864E02BE3AD3600E51403 /* TWTextEditorSDK */,
 				D30E0E0B2BE1585300877A41 /* TwitterCounter */,
 				D30E0E222BE1585500877A41 /* TwitterCounterTests */,
 				D30E0E2C2BE1585500877A41 /* TwitterCounterUITests */,

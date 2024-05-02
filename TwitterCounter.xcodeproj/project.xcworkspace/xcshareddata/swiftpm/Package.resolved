@@ -53,6 +53,15 @@
         "revision" : "9483a5d459b45c3ffd059f7b55f9638e268632fd",
         "version" : "1.5.0"
       }
+    },
+    {
+      "identity" : "twtexteditorsdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yousefelsayed/TWTextEditorSDK.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "85da9363d96645866de61ccb63b9614e8b14dad6"
+      }
     }
   ],
   "version" : 2
