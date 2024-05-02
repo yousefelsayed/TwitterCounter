@@ -212,6 +212,9 @@
                                     <real key="value" value="16"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="postTweetAction:" destination="-1" eventType="touchUpInside" id="eZq-y9-xvE"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgU-zC-fbx">
                             <rect key="frame" x="0.0" y="651" width="382" height="163"/>

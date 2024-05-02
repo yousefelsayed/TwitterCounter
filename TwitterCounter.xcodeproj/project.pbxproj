@@ -21,6 +21,12 @@
 		D30E0E462BE15A4900877A41 /* TWTextEditorSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D30E0E452BE15A4900877A41 /* TWTextEditorSDK */; };
 		D30E0E4A2BE15AD800877A41 /* TwitterCharactersCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E0E482BE15AD800877A41 /* TwitterCharactersCounterViewController.swift */; };
 		D30E0E4E2BE15C3100877A41 /* TwitterCharactersCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D30E0E4D2BE15C3100877A41 /* TwitterCharactersCounterViewController.xib */; };
+		D3CD1A912BE3023C007D9261 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD1A8D2BE3023C007D9261 /* HTTPMethod.swift */; };
+		D3CD1A922BE3023C007D9261 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD1A8E2BE3023C007D9261 /* NetworkService.swift */; };
+		D3CD1A932BE3023C007D9261 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD1A8F2BE3023C007D9261 /* EndPoint.swift */; };
+		D3CD1A942BE3023C007D9261 /* URLSessionNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD1A902BE3023C007D9261 /* URLSessionNetworkService.swift */; };
+		D3CD1A972BE3045E007D9261 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D3CD1A962BE3045E007D9261 /* OAuthSwift */; };
+		D3CD1A9A2BE3896C007D9261 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD1A992BE3896C007D9261 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +65,11 @@
 		D30E0E482BE15AD800877A41 /* TwitterCharactersCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterCharactersCounterViewController.swift; sourceTree = "<group>"; };
 		D30E0E4C2BE15B4A00877A41 /* TWTextEditorSDK */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TWTextEditorSDK; path = ../TWTextEditorSDK; sourceTree = "<group>"; };
 		D30E0E4D2BE15C3100877A41 /* TwitterCharactersCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterCharactersCounterViewController.xib; sourceTree = "<group>"; };
+		D3CD1A8D2BE3023C007D9261 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		D3CD1A8E2BE3023C007D9261 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		D3CD1A8F2BE3023C007D9261 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		D3CD1A902BE3023C007D9261 /* URLSessionNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionNetworkService.swift; sourceTree = "<group>"; };
+		D3CD1A992BE3896C007D9261 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3CD1A972BE3045E007D9261 /* OAuthSwift in Frameworks */,
 				D30E0E462BE15A4900877A41 /* TWTextEditorSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +123,8 @@
 		D30E0E0B2BE1585300877A41 /* TwitterCounter */ = {
 			isa = PBXGroup;
 			children = (
+				D3CD1A982BE3895F007D9261 /* Models */,
+				D3CD1A8C2BE30225007D9261 /* NetworkServices */,
 				D30E0E3C2BE158EE00877A41 /* ViewControllers */,
 				D30E0E0C2BE1585300877A41 /* AppDelegate.swift */,
 				D30E0E0E2BE1585300877A41 /* SceneDelegate.swift */,
@@ -143,7 +157,7 @@
 		D30E0E3C2BE158EE00877A41 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D30E0E472BE15AB600877A41 /* New Group */,
+				D30E0E472BE15AB600877A41 /* TwitterCounterVC */,
 				D30E0E412BE1596500877A41 /* InitialVC */,
 			);
 			path = ViewControllers;
@@ -158,13 +172,32 @@
 			path = InitialVC;
 			sourceTree = "<group>";
 		};
-		D30E0E472BE15AB600877A41 /* New Group */ = {
+		D30E0E472BE15AB600877A41 /* TwitterCounterVC */ = {
 			isa = PBXGroup;
 			children = (
 				D30E0E4D2BE15C3100877A41 /* TwitterCharactersCounterViewController.xib */,
 				D30E0E482BE15AD800877A41 /* TwitterCharactersCounterViewController.swift */,
 			);
-			path = "New Group";
+			path = TwitterCounterVC;
+			sourceTree = "<group>";
+		};
+		D3CD1A8C2BE30225007D9261 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				D3CD1A8F2BE3023C007D9261 /* EndPoint.swift */,
+				D3CD1A8D2BE3023C007D9261 /* HTTPMethod.swift */,
+				D3CD1A8E2BE3023C007D9261 /* NetworkService.swift */,
+				D3CD1A902BE3023C007D9261 /* URLSessionNetworkService.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		D3CD1A982BE3895F007D9261 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D3CD1A992BE3896C007D9261 /* Models.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +218,7 @@
 			name = TwitterCounter;
 			packageProductDependencies = (
 				D30E0E452BE15A4900877A41 /* TWTextEditorSDK */,
+				D3CD1A962BE3045E007D9261 /* OAuthSwift */,
 			);
 			productName = TwitterCounter;
 			productReference = D30E0E092BE1585300877A41 /* TwitterCounter.app */;
@@ -260,6 +294,7 @@
 			mainGroup = D30E0E002BE1585300877A41;
 			packageReferences = (
 				D30E0E442BE15A4900877A41 /* XCRemoteSwiftPackageReference "TWTextEditorSDK" */,
+				D3CD1A952BE3045E007D9261 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
 			);
 			productRefGroup = D30E0E0A2BE1585300877A41 /* Products */;
 			projectDirPath = "";
@@ -308,9 +343,14 @@
 			files = (
 				D30E0E3F2BE1591A00877A41 /* CustomSplashViewController.swift in Sources */,
 				D30E0E4A2BE15AD800877A41 /* TwitterCharactersCounterViewController.swift in Sources */,
+				D3CD1A932BE3023C007D9261 /* EndPoint.swift in Sources */,
+				D3CD1A912BE3023C007D9261 /* HTTPMethod.swift in Sources */,
 				D30E0E112BE1585300877A41 /* ViewController.swift in Sources */,
+				D3CD1A942BE3023C007D9261 /* URLSessionNetworkService.swift in Sources */,
 				D30E0E0D2BE1585300877A41 /* AppDelegate.swift in Sources */,
 				D30E0E0F2BE1585300877A41 /* SceneDelegate.swift in Sources */,
+				D3CD1A922BE3023C007D9261 /* NetworkService.swift in Sources */,
+				D3CD1A9A2BE3896C007D9261 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +707,14 @@
 				kind = branch;
 			};
 		};
+		D3CD1A952BE3045E007D9261 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -674,6 +722,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D30E0E442BE15A4900877A41 /* XCRemoteSwiftPackageReference "TWTextEditorSDK" */;
 			productName = TWTextEditorSDK;
+		};
+		D3CD1A962BE3045E007D9261 /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3CD1A952BE3045E007D9261 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
